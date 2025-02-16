@@ -18,5 +18,14 @@ Make sure you have the following installed:
     - rails db:migrate
     - rails db:seed
 5. Run the application:
-    example:
-    - ruby bin/process_family_commands test/files/valid_input.txt
+    1. ruby bin/process_family_commands {file .txt path}
+        example : ruby bin/process_family_commands test/files/valid_input.txt
+    2. Use API : 
+        * run rails s
+        * hit this curl : 
+        curl -X POST -F "file=@/{path to your txt file}" http://localhost:3000/api/v1/process_commands
+        example : 
+        curl -X POST -F "file=@/C:/king_arthur_family_three/test/files/get_relationship.txt" http://localhost:3000/api/v1/process_commands
+
+
+
