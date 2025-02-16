@@ -1,0 +1,17 @@
+require File.expand_path('../../config/environment', __FILE__)
+require_relative '../lib/family_command_processor'
+
+if ARGV.empty?
+  puts "Please provide the input file path"
+  exit 1
+end
+
+file_path = ARGV[0]
+
+unless File.exist?(file_path)
+  puts "File not found: #{file_path}"
+  exit 1
+end
+
+processor = FamilyCommandProcessor.new
+processor.process_file(file_path)
